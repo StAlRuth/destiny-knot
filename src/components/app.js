@@ -16,7 +16,7 @@ function onSubmit(e) {
     father[i] = data.get('father_' + i) === 'on';
     target[i] = data.get('child_' + i) === 'on';
   }
-  return calculate(mother, father, target);
+  return calculate(mother, father, target, data.get('ability'));
 }
 
 const App = () => {
@@ -43,12 +43,14 @@ const App = () => {
   const [childSpd, setChildSpd] = useState(false);
   const [childSpe, setChildSpe] = useState(false);
 
+  const [ability, setAbility] = useState(5);
+
   const [result, setResult] = useState(undefined);
 
   return (
     <form id="app" onSubmit={(e) => {setResult(onSubmit(e))}}>
       <h1>
-        Pokemon Breeding Calculator
+        Pokemon Breeding Odds Calculator
       </h1>
 
       <p>
@@ -122,17 +124,17 @@ const App = () => {
         <p>
           Which Ability do you want the child to have?
         </p>
-        <select name="ability">
-          <option value="100">No preference</option>
-          <option value="80">Non-Hidden Ability, same as the Mother&#39;s</option>
-          <option value="60">Hidden Ability, same as the Mother&#39;s</option>
-          <option calue="20">Non-Hidden Ability, not the same as the Mother&#39;s</option>
+        <select name="ability" value={ability} onChange={(e)=>setAbility(e.target.value)}>
+          <option value={5}>No preference</option>
+          <option value={4}>Non-Hidden Ability, same as the Mother&#39;s</option>
+          <option value={3}>Hidden Ability, same as the Mother&#39;s</option>
+          <option value={1}>Non-Hidden Ability, not the same as the Mother&#39;s</option>
         </select>
       </label>
       <button type="submit">Calculate</button>
       {result === undefined ? '' : (
         <p>
-          The odds of getting the target Pokemon with the given parents is <strong>{result * 100}%</strong>
+          The odds of getting the target Pokemon with the given parents is <strong>{result['num'] * 100 / result['den']}%</strong>, or {result['num']} out of {result['den']}.
         </p>
       )}
     </form>

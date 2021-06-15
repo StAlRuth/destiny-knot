@@ -11,6 +11,12 @@ const Party = (props) => (
           value={props.item}
           onChange={props.onChangeItem}>
             <option value="">None/Other</option>
+            <option value="hp">Power Weight</option>
+            <option value="spd">Power Band</option>
+            <option value="def">Power Belt</option>
+            <option value="spa">Power Lens</option>
+            <option value="atk">Power Bracer</option>
+            <option value="spe">Power Anklet</option>
             <option value="5iv">Destiny Knot</option>
         </select>
       )}
