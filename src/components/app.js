@@ -48,7 +48,7 @@ const App = () => {
   const [result, setResult] = useState(undefined);
 
   return (
-    <form id="app" onSubmit={(e) => {setResult(onSubmit(e))}}>
+    <form id="app" onSubmit={(e) => {setResult(onSubmit(e))}} class="grid-container">
       <h1>
         Pokemon Breeding Odds Calculator
       </h1>
@@ -57,81 +57,81 @@ const App = () => {
         This calculator will provide the odds of getting a child with certain IVs based on the parents&#39; IVs, Items and Abilities.
       </p>
 
-      <p>
-        Note that the &quot;Mother&quot; in the table below refers to the non-Ditto parent where a male Pokemon is bred with a Ditto.
-      </p>
-
       <table>
-        <tr>
-          <th scope="col">Parent:</th>
-          <th scope="col">Item:</th>
-          <th scope="col">HP:</th>
-          <th scope="col">Atk:</th>
-          <th scope="col">Def:</th>
-          <th scope="col">SpA:</th>
-          <th scope="col">SpD:</th>
-          <th scope="col">Spe:</th>
-        </tr>
-        <Party name='Mother'
-          isChild={false}
-          item={motherItem}
-          onChangeItem={(e) => setMotherItem(e.target.value)}
-          hp={motherHp}
-          onChangeHp={(e) => setMotherHp(e.target.checked)}
-          atk={motherAtk}
-          onChangeAtk={(e) => setMotherAtk(e.target.checked)}
-          def={motherDef}
-          onChangeDef={(e) => setMotherDef(e.target.checked)}
-          spa={motherSpa}
-          onChangeSpa={(e) => setMotherSpa(e.target.checked)}
-          spd={motherSpd}
-          onChangeSpd={(e) => setMotherSpd(e.target.checked)}
-          spe={motherSpe}
-          onChangeSpe={(e) => setMotherSpe(e.target.checked)} />
-        <Party name='Father'
-          isChild={false}
-          item={fatherItem}
-          onChangeItem={(e) => setFatherItem(e.target.value)}
-          hp={fatherHp}
-          onChangeHp={(e) => setFatherHp(e.target.checked)}
-          atk={fatherAtk}
-          onChangeAtk={(e) => setFatherAtk(e.target.checked)}
-          def={fatherDef}
-          onChangeDef={(e) => setFatherDef(e.target.checked)}
-          spa={fatherSpa}
-          onChangeSpa={(e) => setFatherSpa(e.target.checked)}
-          spd={fatherSpd}
-          onChangeSpd={(e) => setFatherSpd(e.target.checked)}
-          spe={fatherSpe}
-          onChangeSpe={(e) => setFatherSpe(e.target.checked)} />
-        <Party name='Child'
-          isChild={true}
-          hp={childHp}
-          onChangeHp={(e) => setChildHp(e.target.checked)}
-          atk={childAtk}
-          onChangeAtk={(e) => setChildAtk(e.target.checked)}
-          def={childDef}
-          onChangeDef={(e) => setChildDef(e.target.checked)}
-          spa={childSpa}
-          onChangeSpa={(e) => setChildSpa(e.target.checked)}
-          spd={childSpd}
-          onChangeSpd={(e) => setChildSpd(e.target.checked)}
-          spe={childSpe}
-          onChangeSpe={(e) => setChildSpe(e.target.checked)} />
+        <tbody>
+          <tr>
+            <th scope="col">Parent:</th>
+            <th scope="col">Item:</th>
+            <th scope="col">HP:</th>
+            <th scope="col">Atk:</th>
+            <th scope="col">Def:</th>
+            <th scope="col">SpA:</th>
+            <th scope="col">SpD:</th>
+            <th scope="col">Spe:</th>
+          </tr>
+          <Party name='Mother'
+            isChild={false}
+            item={motherItem}
+            onChangeItem={(e) => setMotherItem(e.target.value)}
+            hp={motherHp}
+            onChangeHp={(e) => setMotherHp(e.target.checked)}
+            atk={motherAtk}
+            onChangeAtk={(e) => setMotherAtk(e.target.checked)}
+            def={motherDef}
+            onChangeDef={(e) => setMotherDef(e.target.checked)}
+            spa={motherSpa}
+            onChangeSpa={(e) => setMotherSpa(e.target.checked)}
+            spd={motherSpd}
+            onChangeSpd={(e) => setMotherSpd(e.target.checked)}
+            spe={motherSpe}
+            onChangeSpe={(e) => setMotherSpe(e.target.checked)} />
+          <Party name='Father'
+            isChild={false}
+            item={fatherItem}
+            onChangeItem={(e) => setFatherItem(e.target.value)}
+            hp={fatherHp}
+            onChangeHp={(e) => setFatherHp(e.target.checked)}
+            atk={fatherAtk}
+            onChangeAtk={(e) => setFatherAtk(e.target.checked)}
+            def={fatherDef}
+            onChangeDef={(e) => setFatherDef(e.target.checked)}
+            spa={fatherSpa}
+            onChangeSpa={(e) => setFatherSpa(e.target.checked)}
+            spd={fatherSpd}
+            onChangeSpd={(e) => setFatherSpd(e.target.checked)}
+            spe={fatherSpe}
+            onChangeSpe={(e) => setFatherSpe(e.target.checked)} />
+          <Party name='Child'
+            isChild={true}
+            hp={childHp}
+            onChangeHp={(e) => setChildHp(e.target.checked)}
+            atk={childAtk}
+            onChangeAtk={(e) => setChildAtk(e.target.checked)}
+            def={childDef}
+            onChangeDef={(e) => setChildDef(e.target.checked)}
+            spa={childSpa}
+            onChangeSpa={(e) => setChildSpa(e.target.checked)}
+            spd={childSpd}
+            onChangeSpd={(e) => setChildSpd(e.target.checked)}
+            spe={childSpe}
+            onChangeSpe={(e) => setChildSpe(e.target.checked)} />
+        </tbody>
       </table>
 
-      <label>
-        <p>
-          Which Ability do you want the child to have?
-        </p>
+      <p>
+        <label>
+          Which Ability do you want the child to have? (When breeding a male with a Ditto, the male is the "Mother")
         <select name="ability" value={ability} onChange={(e)=>setAbility(e.target.value)}>
           <option value={5}>No preference</option>
           <option value={4}>Non-Hidden Ability, same as the Mother&#39;s</option>
           <option value={3}>Hidden Ability, same as the Mother&#39;s</option>
           <option value={1}>Non-Hidden Ability, not the same as the Mother&#39;s</option>
         </select>
-      </label>
-      <button type="submit">Calculate</button>
+        </label>
+      </p>
+      <p>
+        <button type="submit" class="button expanded">Calculate</button>
+      </p>
       {result === undefined ? '' : (
         <p>
           The odds of getting the target Pokemon with the given parents is <strong>{result['num'] * 100 / result['den']}%</strong>, or {result['num']} out of {result['den']}.

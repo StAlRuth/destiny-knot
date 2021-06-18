@@ -22,41 +22,53 @@ const Party = (props) => (
       )}
     </td>
     <td>
-      <input
-        type="checkbox"
-        name={props.name.toLowerCase() + '_hp'}
-        checked={props.hp}
+      <label class='expander'>
+        <input
+          type="checkbox"
+          name={props.name.toLowerCase() + '_hp'}
+          checked={props.hp}
         onChange={props.onChangeHp} />
+      </label>
     </td>
     <td>
-      <input type="checkbox"
-        name={props.name.toLowerCase() + '_atk'}
-        checked={props.atk}
-        onChange={props.onChangeAtk} />
+      <label class='expander'>
+        <input type="checkbox"
+          name={props.name.toLowerCase() + '_atk'}
+          checked={props.atk}
+          onChange={props.onChangeAtk} />
+      </label>
     </td>
     <td>
+      <label class='expander'>
       <input type="checkbox"
         name={props.name.toLowerCase() + '_def'}
         checked={props.def}
         onChange={props.onChangeDef} />
+      </label>
     </td>
     <td>
-      <input type="checkbox"
-        name={props.name.toLowerCase() + '_spa'}
-        checked={props.spa}
-        onChange={props.onChangeSpa} />
+      <label class='expander'>
+        <input type="checkbox"
+          name={props.name.toLowerCase() + '_spa'}
+          checked={props.spa}
+          onChange={props.onChangeSpa} />
+      </label>
     </td>
     <td>
-      <input type="checkbox"
-        name={props.name.toLowerCase() + '_spd'}
-        checked={props.spd}
-        onChange={props.onChangeSpd} />
+      <label class='expander'>
+        <input type="checkbox"
+          name={props.name.toLowerCase() + '_spd'}
+          checked={props.spd}
+          onChange={props.onChangeSpd} />
+      </label>
     </td>
     <td>
-      <input type="checkbox"
-        name={props.name.toLowerCase() + '_spe'}
-        checked={props.spe}
-        onChange={props.onChangeSpe} />
+      <label class='expander'>
+        <input type="checkbox"
+          name={props.name.toLowerCase() + '_spe'}
+          checked={props.spe}
+          onChange={props.onChangeSpe} />
+      </label>
     </td>
   </tr>
 );
