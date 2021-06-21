@@ -8,6 +8,7 @@ const Party = (props) => (
     <td>
       {props.isChild ? ('') : (
         <select name={props.name.toLowerCase() + '_item'}
+          aria-label={props.name + ' Item'}
           value={props.item}
           onChange={props.onChangeItem}>
             <option value="">None/Other</option>
@@ -26,6 +27,7 @@ const Party = (props) => (
         <input
           type="checkbox"
           name={props.name.toLowerCase() + '_hp'}
+          aria-label={'Is the ' + props.name + "'s HP IV correct?"}
           checked={props.hp}
         onChange={props.onChangeHp} />
       </label>
@@ -34,6 +36,7 @@ const Party = (props) => (
       <label class='expander'>
         <input type="checkbox"
           name={props.name.toLowerCase() + '_atk'}
+          aria-label={'Is the ' + props.name + "'s Attack IV correct?"}
           checked={props.atk}
           onChange={props.onChangeAtk} />
       </label>
@@ -42,6 +45,7 @@ const Party = (props) => (
       <label class='expander'>
       <input type="checkbox"
         name={props.name.toLowerCase() + '_def'}
+          aria-label={'Is the ' + props.name + "'s Defence IV correct?"}
         checked={props.def}
         onChange={props.onChangeDef} />
       </label>
@@ -50,6 +54,7 @@ const Party = (props) => (
       <label class='expander'>
         <input type="checkbox"
           name={props.name.toLowerCase() + '_spa'}
+          aria-label={'Is the ' + props.name + "'s Special Attack IV correct?"}
           checked={props.spa}
           onChange={props.onChangeSpa} />
       </label>
@@ -58,6 +63,7 @@ const Party = (props) => (
       <label class='expander'>
         <input type="checkbox"
           name={props.name.toLowerCase() + '_spd'}
+          aria-label={'Is the ' + props.name + "'s Special Defence IV correct?"}
           checked={props.spd}
           onChange={props.onChangeSpd} />
       </label>
@@ -66,6 +72,7 @@ const Party = (props) => (
       <label class='expander'>
         <input type="checkbox"
           name={props.name.toLowerCase() + '_spe'}
+          aria-label={'Is the ' + props.name + "'s Speed IV correct?"}
           checked={props.spe}
           onChange={props.onChangeSpe} />
       </label>
